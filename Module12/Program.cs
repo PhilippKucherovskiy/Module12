@@ -1,11 +1,11 @@
-﻿static void ArrayCount()
+﻿static void AgeChecker()
 {
-    Console.WriteLine("Сколько элементов будет в массиве?");
-    var count = Int32.Parse(Console.ReadLine());
-    var array = new int[count];
-    for (int i = 0; i < count; i++)
+    Console.WriteLine("Enter your age");
+    int age = Convert.ToInt32(Console.ReadLine());
+    if (age > 13)
     {
-        array[i] = Int32.Parse(Console.ReadLine());
-    }
-    Console.WriteLine("Все элементы записаны");
+        Console.WriteLine("Your registration is completed!");
+    }else 
+    { Console.WriteLine("Users under 14 years old can't be registered."); }
+
 }
