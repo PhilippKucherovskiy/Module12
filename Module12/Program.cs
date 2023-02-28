@@ -1,11 +1,50 @@
-﻿static void AgeChecker()
+﻿
+class User
 {
-    Console.WriteLine("Enter your age");
-    int age = Convert.ToInt32(Console.ReadLine());
-    if (age > 13)
-    {
-        Console.WriteLine("Your registration is completed!");
-    }else 
-    { Console.WriteLine("Users under 14 years old can't be registered."); }
+    public string Login { get; set; }
+    public string Name { get; set; }
+    public bool IsPremium { get; set; }
+}
 
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Список пользователей
+        List<User> users = new List<User>
+        {
+            new User { Login = "user1", Name = "Иван", IsPremium = true },
+            new User { Login = "user2", Name = "Алексей", IsPremium = false },
+            new User { Login = "user3", Name = "Мария", IsPremium = true },
+            new User { Login = "user4", Name = "Наталья", IsPremium = false }
+        };
+        //Перебираем каждого пользователя и здороваемся с ним
+        foreach (User user in users)
+        {
+   
+            Console.WriteLine($"Здравствуйте, {user.Name}!");
+            //Если нет премиума показываем рекламу
+            if (!user.IsPremium)
+            {
+                ShowAds();
+            }
+        }
+
+        Console.ReadLine();
+    }
+
+    static void ShowAds()
+    {
+        Console.WriteLine("Посетите наш новый сайт с бесплатными играми free.games.for.a.fool.com");
+        // Остановка на 1 с
+        Thread.Sleep(1000);
+
+        Console.WriteLine("Купите подписку на МыКомбо и слушайте музыку везде и всегда.");
+        // Остановка на 2 с
+        Thread.Sleep(2000);
+
+        Console.WriteLine("Оформите премиум-подписку на наш сервис, чтобы не видеть рекламу.");
+        // Остановка на 3 с
+        Thread.Sleep(3000);
+    }
 }
